@@ -19,23 +19,12 @@ fn print_fizzbuzz(_: usize) {
 fn print(x: usize) {
     let funcs = [
         print_num,
-        print_num,
-        print_fizz,
-        print_num,
-        print_buzz,
-        print_fizz,
-        print_num,
-        print_num,
         print_fizz,
         print_buzz,
-        print_num,
-        print_fizz,
-        print_num,
-        print_num,
         print_fizzbuzz,
     ];
 
-    funcs[(x-1)%15](x);
+    funcs[(((x % 3) == 0) as usize) ^ ((((x % 5) == 0) as usize) << 1)](x);
 }
 
 #[unroll_for_loops]
